@@ -28,6 +28,12 @@ class While:
         self.condition = condition
         self.body = body
 
+class Forloop:
+    def __init__(self, var_name, iterable, body):
+        self.var_name = var_name
+        self.iterable = iterable
+        self.body = body
+
 class FuncDef:
     def __init__(self, name, params, body):
         self.name = name
@@ -186,6 +192,14 @@ class Parser:
             condition = self.parse_condition()
             body = self.parse_block()
             return While(condition, body)
+        
+        elif token[0] == "FOR":
+                    self.eat("FOR")
+                    var_name = self.eat("NAME")
+                    self.eat("IN")
+                    iterable = self.parse_expr()
+                    body = self.parse_block()
+                    return Forloop(var_name[1], iterable, body)
 
         elif token[0] == "FUNC":
             self.eat("FUNC")

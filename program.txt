@@ -1,3 +1,4 @@
- let nums=[10,20,30]
- let i=1
- print nums[0]
+let mylist = [1, 2, 3]
+for i in mylist {
+    print i
+}

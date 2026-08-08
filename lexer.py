@@ -20,6 +20,8 @@ TOKEN_PATTERNS = [
     ("PRINT",   r"print\b"),
     ("IF",      r"if\b"),
     ("WHILE",   r"while\b"),
+    ("FOR",     r"for\b"),
+    ("IN",      r"in\b"),
     ("ELSE",    r"else\b"),
     ("AND",     r"and\b"),
     ("OR",      r"or\b"),

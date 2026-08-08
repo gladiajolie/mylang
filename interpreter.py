@@ -42,6 +42,13 @@ class Interpreter:
             while self.eval_condition(node.condition):
                 self.eval_block(node.body)
             return None
+        
+        if node.__class__.__name__ == "Forloop":
+            iterable_val = self.eval(node.iterable)
+            for item in iterable_val:
+                self.variables[node.var_name] = item
+                self.eval_block(node.body)
+            return None
 
         if node.__class__.__name__ == "FuncDef":
             self.variables[node.name] = node
